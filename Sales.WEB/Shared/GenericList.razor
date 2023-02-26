@@ -1,22 +1,21 @@
 ﻿@typeparam Titem
 
-@if(MyList is null)
+@if (MyList is null)
 {
-    @if(Loading is null)
+    @if (Loading is null)
     {
         <div class="align-items-center">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif?20170503175831"/>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif?20170503175831" />
         </div>
     }
     else
     {
-       @Loading
+        @Loading
     }
 }
-
-else if(MyList.Count == 0)
+else if (MyList.Count == 0)
 {
-    @if(NoRecords is null)
+    @if (NoRecords is null)
     {
         <div class="align-items-center">
             <p>No hay registros para mostrar.</p>
@@ -26,16 +25,16 @@ else if(MyList.Count == 0)
     {
         @NoRecords
     }
-
 }
 else
 {
     @Body
 }
 
+
 @code {
     [Parameter]
-    public RenderFragment? Loading { get; set; }           
+    public RenderFragment? Loading { get; set; }
 
     [Parameter]
     public RenderFragment? NoRecords { get; set; }
@@ -47,5 +46,4 @@ else
     [Parameter]
     [EditorRequired]
     public List<Titem> MyList { get; set; } = null!;
-
 }
