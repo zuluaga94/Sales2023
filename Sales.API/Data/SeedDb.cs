@@ -19,6 +19,14 @@ namespace Sales.API.Data
 
         private async Task CheckCountriesAsync()
         {
+
+            if (!_context.Categories.Any())
+            {
+                _context.Categories.Add(new Category { Name = "Tecnologia" });
+                _context.Categories.Add(new Category { Name = "Calzado" });
+                _context.Categories.Add(new Category { Name = "Vestuario" });
+            }
+
             if (!_context.Countries.Any())
             {
                 _context.Countries.Add(new Country
