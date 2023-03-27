@@ -4,11 +4,11 @@
     <ul class="pagination">
         @foreach (var link in Links)
         {
-            <div class="mb-2"   style="display: flex; flex-wrap:wrap; align-items: center;">
+            
             <li @onclick=@(() => InternalSelectedPage(link)) style="cursor: pointer" class="page-item  @(link.Enable ? null : "disabled") @(link.Enable ? "active" : null)">
-                <a class="page-link" style="width: 40px;" >@link.Text</a>
+                <a class="page-link" style="width: 60px;" >@link.Text</a>
             </li>
-            </div>
+            
         }
     </ul>
 </nav>
@@ -31,7 +31,7 @@
 
         Links.Add(new PageModel
             {
-                Text = "<<",
+                Text = "<",
                 Page = previousLinkPage,
                 Enable = previousLinkEnable
             });
@@ -78,7 +78,7 @@
 
         Links.Add(new PageModel
             {
-                Text = ">>",
+                Text = ">",
                 Page = linkNextPage,
                 Enable = linkNextEnable
             });

@@ -34,7 +34,7 @@ namespace Sales.WEB.Repositories
                 return await HttpResponseMessage.Content.ReadAsStringAsync();
             }
             else if (statusCode == HttpStatusCode.Unauthorized)
-            { 
+            {
                 return "Tienes que logearte para hacer esta operación";
             }
             else if (statusCode == HttpStatusCode.Forbidden)
