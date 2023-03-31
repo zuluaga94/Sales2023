@@ -12,6 +12,9 @@
     private State state = new();
     private StateForm? stateForm;
 
+    [CascadingParameter]
+    BlazoredModalInstance BlazoredModal { get; set; } = default!;
+
     [Parameter]
     public int CountryId { get; set; }
 
@@ -19,14 +22,14 @@
     {
 
         state.CountryId = CountryId;
-        var httpResponse = await repository.Post("/api/states", state);
+        var httpResponse = await repository.Post("/api/states",state);
         if (httpResponse.Error)
         {
             var message = await httpResponse.GetErrorMessageAsync();
             await sweetAlertService.FireAsync("Error", message, SweetAlertIcon.Error);
             return;
         }
-
+        await BlazoredModal.CloseAsync(ModalResult.Ok());
         Return();
     }
 
